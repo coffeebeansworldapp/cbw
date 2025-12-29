@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360">
+  <defs>
+    <style>
+      .cls-1{fill:#ffffff}
+      .title{font-family:Georgia, 'Times New Roman', Times, serif; font-size:64px; font-weight:700}
+      .arabic{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:40px}
+    </style>
+  </defs>
+  <g transform="translate(40,20)">
+    <!-- simple coffee-bean + leaves icon -->
+    <g transform="translate(0,0) scale(1)">
+      <path class="cls-1" d="M300 20c-60 0-120 80-120 160s60 160 120 160 120-80 120-160S360 20 300 20zm0 30c26 0 60 48 60 100s-34 100-60 100-60-48-60-100 34-100 60-100z"/>
+      <path class="cls-1" d="M170 50c-40 0-90 40-110 84 24 8 62 14 94 4 36-11 52-46 64-68-12-6-28-20-48-20z"/>
+      <path class="cls-1" d="M430 50c40 0 90 40 110 84-24 8-62 14-94 4-36-11-52-46-64-68 12-6 28-20 48-20z"/>
+    </g>
+
+    <!-- Text -->
+    <g transform="translate(560,120)">
+      <text class="title cls-1" x="0" y="0">COFFEE BEANS WORLD</text>
+      <text class="arabic cls-1" x="0" y="60">كوفي بينز وورلد</text>
+    </g>
+  </g>
+</svg>

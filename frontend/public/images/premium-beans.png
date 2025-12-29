@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="100%" height="100%" fill="#fff7f2"/>
+  <rect x="80" y="60" width="1040" height="680" rx="18" fill="#f6efe6" stroke="#e0cbb3" stroke-width="6"/>
+  <g transform="translate(140,120)">
+    <rect width="720" height="560" rx="12" fill="#fff" stroke="#e9dad0" stroke-width="4"/>
+    <text x="360" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#8b5a3c">Premium Beans</text>
+    <text x="360" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#8b5a3c">Blue Mountain • 250g</text>
+  </g>
+  <g transform="translate(920,160)">
+    <text x="0" y="0" font-family="Georgia, serif" font-size="20" fill="#8b5a3c">COFFEE BEANS WORLD</text>
+    <path d="M10 28c20-30 60-30 80 0" fill="none" stroke="#d7aa7f" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "528590894926",
+    "project_id": "coffeebeansworld-v1",
+    "storage_bucket": "coffeebeansworld-v1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528590894926:android:17796e451dc29577c1501f",
+        "android_client_info": {
+          "package_name": "com.coffeebeansworld.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528590894926-t5ncvd2uiqt1ohdvvoehaqb88tifplbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW8lOgOR9CplEfuhpmtbZXio1rdMZxoEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528590894926-t5ncvd2uiqt1ohdvvoehaqb88tifplbl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "528590894926-akuuodn0so4946spcd85enr0g85g2bcn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.coffeebeansworld.mobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
