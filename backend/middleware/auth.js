@@ -9,7 +9,14 @@ const jwt = require('jsonwebtoken');
 const Customer = require('../models/Customer');
 const AdminUser = require('../models/AdminUser');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'cbw-secret-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  console.error('CRITICAL ERROR: JWT_SECRET is not set in environment variables.');
+  if (process.env.NODE_ENV === 'production') {
+    process.exit(1);
+  }
+}
 
 /**
  * Verify customer authentication

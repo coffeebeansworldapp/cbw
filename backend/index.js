@@ -12,6 +12,16 @@ const connectDB = require('./config/db');
 
 const app = express();
 
+// Validate critical environment variables
+if (!process.env.JWT_SECRET) {
+  console.error('FATAL ERROR: JWT_SECRET is not defined.');
+  if (process.env.NODE_ENV === 'production') {
+    process.exit(1);
+  } else {
+    console.warn('WARNING: Running without JWT_SECRET in development mode.');
+  }
+}
+
 // CORS - must be before other middleware
 app.use(cors({
   origin: true, // Allow all origins in development

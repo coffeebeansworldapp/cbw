@@ -3,4 +3,11 @@ dist/
 frontend/node_modules/
 backend/node_modules/
 .env
+.env.local
+.env.*.local
 *.log
+*.pem
+*.key
+.DS_Store
+.idea/
+.vscode/
