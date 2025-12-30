@@ -684,11 +684,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           );
         }
 
+        final width = MediaQuery.of(context).size.width;
+        final crossAxisCount = width > 900 ? 4 : (width > 600 ? 3 : 2);
+
         return SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           sliver: SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
               childAspectRatio: 0.65,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,

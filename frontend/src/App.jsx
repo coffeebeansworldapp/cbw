@@ -14,33 +14,48 @@ import Footer from './components/Footer'
 
 function AppContent() {
   const { cartCount } = useCart()
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   return (
     <div className="app-shell">
       <header className="app-header">
         <div className="header-inner">
           <div className="brand">
-            <img
-              src="/images/cbw-logo.png"
-              alt="Coffee Beans World"
-              className="cbw-logo"
-              style={{ height: 56 }}
-              onError={(e) => {
-                e.currentTarget.onerror = null
-                e.currentTarget.src = logo
-              }}
-            />
+            <Link to="/">
+              <img
+                src="/images/cbw-logo.png"
+                alt="Coffee Beans World"
+                className="cbw-logo"
+                style={{ height: 56 }}
+                onError={(e) => {
+                  e.currentTarget.onerror = null
+                  e.currentTarget.src = logo
+                }}
+              />
+            </Link>
           </div>
 
-          <nav className="app-nav">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/vision">Vision</Link>
-            <Link to="/mission">Mission</Link>
-            <Link to="/workspace">Workspace</Link>
-            <Link to="/stores">Stores</Link>
+          <button 
+            className="menu-toggle" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
 
-            <Link to="/cart" className="cart-link">
+          <nav className={`app-nav ${isMenuOpen ? 'active' : ''}`}>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link to="/vision" onClick={() => setIsMenuOpen(false)}>Vision</Link>
+            <Link to="/mission" onClick={() => setIsMenuOpen(false)}>Mission</Link>
+            <Link to="/workspace" onClick={() => setIsMenuOpen(false)}>Workspace</Link>
+            <Link to="/stores" onClick={() => setIsMenuOpen(false)}>Stores</Link>
+
+            <Link to="/cart" className="cart-link" onClick={() => setIsMenuOpen(false)}>
               🛒 Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </Link>
           </nav>

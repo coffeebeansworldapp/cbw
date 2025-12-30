@@ -6,9 +6,49 @@ a { color: inherit; text-decoration: none; }
 .app-header .header-inner{width:min(1200px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 0} /* Increased padding */
 .brand{display:flex;align-items:center;gap:16px;color:var(--cream);font-weight:700;font-size:18px} /* Increased gap and font size */
 .brand img{height:55px;width:auto} /* Height only - preserves aspect ratio */
-.app-nav{display:flex;gap:16px;align-items:center} /* Increased gap */
-.app-nav a{color:var(--text);opacity:0.92;padding:10px 14px;border-radius:8px;font-size:16px} /* Increased font size and padding */
+.app-nav{display:flex;gap:16px;align-items:center}
+.app-nav a{color:var(--text);opacity:0.92;padding:10px 14px;border-radius:8px;font-size:16px;transition:all 0.3s ease}
 .app-nav a:hover{background:rgba(255,255,255,0.03);opacity:1}
+
+/* Hamburger Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2000;
+}
+
+.hamburger {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cream);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 *{box-sizing:border-box; margin: 0; padding: 0;}
 html{overflow-x:hidden;}
@@ -149,17 +189,51 @@ nav{display:flex; gap:12px}
 	.cards{grid-template-columns:repeat(2,1fr)}
 	.footer-top{grid-template-columns:1fr}
 	.footer-bottom-content{grid-template-columns:repeat(2,1fr)}
-	.app-nav{flex-wrap:wrap;justify-content:center}
+	
+	/* Mobile Header */
+	.menu-toggle { display: block; }
+	
+	.app-nav {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 80%;
+		max-width: 320px;
+		height: 100vh;
+		background: var(--bg-1);
+		flex-direction: column;
+		padding: 100px 40px;
+		transform: translateX(100%);
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+		z-index: 1000;
+		align-items: flex-start;
+		gap: 20px;
+		backdrop-filter: blur(10px);
+		border-left: 1px solid rgba(255,255,255,0.05);
+	}
+	
+	.app-nav.active {
+		transform: translateX(0);
+	}
+	
+	.app-nav a {
+		width: 100%;
+		font-size: 20px;
+		padding: 12px 0;
+		border-bottom: 1px solid rgba(255,255,255,0.05);
+		border-radius: 0;
+	}
+
 	.hero{padding:44px 34px 42px}
 	.hero h1{font-size:48px}
 }
 
 @media (max-width:640px){
-	.app-header .header-inner{padding:12px}
-	.app-nav{gap:8px}
+	.app-header .header-inner{padding:12px 16px}
 	.hero{min-height:380px;padding:34px 22px 36px}
 	.hero h1{font-size:34px}
-	.carousel-container{height:360px;margin-top:72px}
+	.carousel-container{height:320px;margin-top:0}
 	.feature-grid{grid-template-columns:1fr}
 }
 
@@ -808,10 +882,9 @@ nav{display:flex; gap:12px}
 
 .pdp-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   overflow: visible;
-  transform: translateX(-20%);
 }
 
 .pdp-card {
@@ -837,10 +910,10 @@ nav{display:flex; gap:12px}
     -20px 0 80px rgba(215, 170, 127, 0.25),
     0 30px 80px rgba(0, 0, 0, 0.7);
   display: grid;
-  grid-template-columns: 1fr 0.6fr;
-  gap: 30px;
-  padding: clamp(28px, 3.5vh, 40px) clamp(28px, 2.5vw, 40px);
-  overflow: visible;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(20px, 4vw, 60px);
+  padding: clamp(24px, 4vh, 48px);
+  overflow: hidden;
   position: relative;
 }
 
@@ -1077,36 +1150,29 @@ nav{display:flex; gap:12px}
 .pdp-media {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
   overflow: visible;
-  margin-right: -80px;
 }
 
 .pdp-image {
-  width: 230%;
-  max-width: 750px;
+  width: 100%;
   height: auto;
-  max-height: min(75vh, 620px);
+  max-height: min(70vh, 580px);
   object-fit: contain;
-  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.85));
-  transform: translateX(30%) scale(1.3);
-  transition: transform 0.5s ease;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7));
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1);
   position: relative;
   z-index: 10;
 }
 
 .pdp-card:hover .pdp-image {
-  transform: translateX(30%) scale(1.38);
+  transform: scale(1.05);
 }
 
-/* Jamaica Blue Mountain - shift image right */
+/* Jamaica Blue Mountain - slight tilt or different styling if needed */
 .pdp-image--jamaica {
-  transform: translateX(40%) scale(1.3);
-}
-
-.pdp-card:hover .pdp-image--jamaica {
-  transform: translateX(40%) scale(1.38);
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.85));
 }
 
 /* Short Height Viewports */
@@ -1130,31 +1196,28 @@ nav{display:flex; gap:12px}
   }
 }
 
-/* Tablet & Mobile */
-@media (max-width: 900px) {
+/* Tablet & Laptop - stack slightly earlier and adjust grid */
+@media (max-width: 1024px) {
   .pdp-card {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 30px 25px;
+    gap: 40px;
+    padding: 40px 30px;
+    max-width: 700px;
+    margin: 0 auto;
   }
   
   .pdp-media {
     order: -1;
-    min-height: 300px;
+    min-height: auto;
   }
   
   .pdp-image {
-    width: 100%;
-    max-width: 520px;
-    transform: translateX(0);
-  }
-  
-  .pdp-card:hover .pdp-image {
-    transform: scale(1.05);
+    max-width: 420px;
+    margin: 0 auto;
   }
   
   .pdp-info-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
